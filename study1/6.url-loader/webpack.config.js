@@ -15,7 +15,7 @@ module.exports = {
                          //placeholder  占位符
                          name: '[name]_[hash].[ext]',
                          outputPath: 'images/',
-                         limit: 2048        //小于2kb则把图片打包的js文件中
+                         limit: 2048        //小于2kb则把图片以base64的形式打包的js文件中
                      },
                  }
              }

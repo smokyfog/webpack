@@ -1,0 +1,6 @@
+1.运行webpack
+npx webpack index.js
+npx webpack                                                         //会根据项目下的webpack.config.js进行打包
+npx webpack --config webpackconfig.js                               //指定某个文件为配置文件进行打包操作
+
+2.

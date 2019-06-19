@@ -3,4 +3,11 @@ npx webpack index.js
 npx webpack                                                         //会根据项目下的webpack.config.js进行打包
 npx webpack --config webpackconfig.js                               //指定某个文件为配置文件进行打包操作
 
-2.
+2.source-map    配置项区别
+
+none,                               不做映射
+source-map,                         打包出单独的map文件 
+inline-source-map,                  把map文件转为base64的形式嵌入到打包出的文件中       具体到第几行第几个字符
+cheap-inline-source-map             如果                                             cheap指定到某一行
+cheap-module-inline-source-map      不仅指定业务代码，也显示第三方模块快中的错误    
+eval                                

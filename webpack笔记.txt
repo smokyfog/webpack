@@ -11,3 +11,21 @@ inline-source-map,                  把map文件转为base64的形式嵌入到�
 cheap-inline-source-map             如果                                             cheap指定到某一行
 cheap-module-inline-source-map      不仅指定业务代码，也显示第三方模块快中的错误    
 eval                                
+
+
+
+3.Tress Shaking   只支持ES Module   按需打包
+(1).webpack.config.js引入:
+optimization: {
+    usedExports :true
+},
+
+(2).package.json 加引入    
+如没有不需要做 Tress Shaking的代码
+"sideEffects":false,
+
+"sideEffects":["@babek/polly-fill"],    //用来标识不希望Tress Shaking对所写内容进行处理
+
+"sideEffects":[                 //排除所有的css文件
+    "*.css"
+],

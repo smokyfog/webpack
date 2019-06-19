@@ -1,12 +1,12 @@
 const path = require("path");
 const HttpWebpackPlugun = require("html-webpack-plugin");       //会在打包结束后自动生成一个html文件，并把打包生成的js自动引入到这个html文件中
-const CleanWeboackPlugin = require("clean-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 const webpack = require("webpack");
 
 //plugin 可以在webpack运行到某个时刻的时候帮你做一些事情
 
 module.exports = {
-    mode:'production',      //production（压缩）或者development（不压缩）模式
+    mode:'development',      //production（压缩）或者development（不压缩）模式
     devtool:'cheap-module-eval-source-map',    //具体内容看webpack笔记
     //development devtool:'cheap-module-eval-source-map',    建议
     //production devtool:'cheap-module-source-map',          建议
@@ -18,10 +18,15 @@ module.exports = {
         open: true,
         port: '8888',
         hot: true,           //热模块替换
-        // hotOnly: true
+        hotOnly: true
     },
     module: {
         rules:[
+             {
+                 test: /\.js$/, 
+                 exclude: /node_modules/, 
+                 loader: "babel-loader"
+             },
              {
                  test: /\.(jpg|png|gif)$/,
                  use: {
@@ -64,8 +69,9 @@ module.exports = {
         new HttpWebpackPlugun({             //会在打包之后运行
             template:'src/index.html'
         }),
-        new CleanWeboackPlugin(['dist']),    //会在打包之前运行  清理dist目录
-        new webpack.HotModuleReplacementPlugin()     //热模块替换
+        new CleanWebpackPlugin(['dist']),    //会在打包之前运行  清理dist目录
+        new webpack.HotModuleReplacementPlugin(),     //热模块替换
+
     ],
     output: {
         // publicPath:'http://cdn.com.cn/',    //html引入相应的js时会在js前面增加http://cdn.com.cn/前缀

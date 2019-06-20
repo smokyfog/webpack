@@ -56,6 +56,11 @@ module.exports = {
             root: path.resolve(__dirname, '../dist')
         }),    //会在打包之前运行  清理dist目录
     ],
+    optimization:{
+        splitChunks:{
+            chunks: 'all'
+        }
+    },
     output: {
         // publicPath:'http://cdn.com.cn/',    //html引入相应的js时会在js前面增加http://cdn.com.cn/前缀
         filename: '[name].js',

@@ -66,3 +66,15 @@ splitChunks: {
     }
 }
 
+
+
+5. 代码分析
+https://github.com/webpack/analyse   (分析工具需要翻墙)
+
+package.json  :
+"scripts": {
+    "dev-build": "webpack --profile --json > stats.json --config ./build/webpack.dev.js",
+},
+
+
+ctrl + shift + p   >Show Coverage 查看代码利用率

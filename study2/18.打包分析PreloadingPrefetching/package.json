@@ -1,0 +1,19 @@
+{
+  "name": "test3",
+  "version": "1.0.0",
+  "sideEffects":false,
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server",
+    "server": "node server.js",
+    "dev-build": "webpack --profile --json > stats.json --config ./build/webpack.dev.js",
+    "dev": "webpack-dev-server --config ./build/webpack.dev.js",
+    "build": "webpack --config ./build/webpack.prod.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

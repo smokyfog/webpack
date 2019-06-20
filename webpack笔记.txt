@@ -11,3 +11,70 @@ inline-source-map,                  把map文件转为base64的形式嵌入到�
 cheap-inline-source-map             如果                                             cheap指定到某一行
 cheap-module-inline-source-map      不仅指定业务代码，也显示第三方模块快中的错误    
 eval                                
+
+
+
+3.Tress Shaking   只支持ES Module   按需打包
+(1).webpack.config.js引入:
+optimization: {
+    usedExports :true
+},
+
+(2).package.json 加引入    
+如没有不需要做 Tress Shaking的代码
+"sideEffects":false,
+
+"sideEffects":["@babek/polly-fill"],    //用来标识不希望Tress Shaking对所写内容进行处理
+
+"sideEffects":[                 //排除所有的css文件
+    "*.css"
+],
+
+
+4. Code Splitting （代码分割）      --15 CodeSplitting
+代码分割与webpack无关
+webpack的实现有两种方式
+(1) 同步代码  只需要在webpapck.common.js中做optimization的值
+
+optimization:{
+    splitChunks:{
+        chunks: 'all'
+    }
+},
+
+(2) 异步代码(import)  异步代码无需做任何配置，就自动进行代码分割，放置到新的文件中
+
+//默认配置
+splitChunks: {
+    chunks: "async",    
+    minSize: 30000,
+    minChunks: 1,
+    maxAsyncRequests: 5,
+    maxInitialRequests: 3,
+    automaticNameDelimiter: '~',
+    name: true,
+    cacheGroups: {
+        vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10
+        },
+    default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true
+        }
+    }
+}
+
+
+
+5. 代码分析
+https://github.com/webpack/analyse   (分析工具需要翻墙)
+
+package.json  :
+"scripts": {
+    "dev-build": "webpack --profile --json > stats.json --config ./build/webpack.dev.js",
+},
+
+
+ctrl + shift + p   >Show Coverage 查看代码利用率

@@ -2,6 +2,7 @@ const path = require("path");
 const HttpWebpackPlugun = require("html-webpack-plugin");       //会在打包结束后自动生成一个html文件，并把打包生成的js自动引入到这个html文件中
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
+
 module.exports = {
     entry: {
         main: './src/index.js',
@@ -25,27 +26,7 @@ module.exports = {
                      },
                  }
              },
-             {
-                 test:/\.scss$/,
-                 use:[
-                     'style-loader',
-                     {
-                         loader: 'css-loader',
-                         options: {
-                             importLoaders: 2
-                         }
-                     },
-                     'sass-loader',
-                     'postcss-loader'
-                 ]
-             },
-             {
-                test:/\.css$/,
-                use:[
-                    'style-loader',
-                    'css-loader'
-                ]
-            }
+             
         ]
     },
     plugins:[                               //plugin 可以在webpack运行到某个时刻的时候帮你做一些事情
@@ -57,6 +38,7 @@ module.exports = {
         }),    //会在打包之前运行  清理dist目录
     ],
     optimization:{      //splitChunks   代码分割
+        usedExports:true,
         splitChunks:{
             chunks: "all",                  //async：只对异步代码生效  initial：对同步代码做分割    all: 全部都分割--同步代码分割必须在cacheGroups进行配置
             // minSize: 30000,                 //大于30kb 才会做代码分割

@@ -16,6 +16,31 @@ const devConfig = {
     plugins:[                               //plugin 可以在webpack运行到某个时刻的时候帮你做一些事情
         new webpack.HotModuleReplacementPlugin(),     //热模块替换
     ],
+    module:{
+        rules:[
+            {
+                 test:/\.scss$/,
+                 use:[
+                     'style-loader',
+                     {
+                         loader: 'css-loader',
+                         options: {
+                             importLoaders: 2
+                         }
+                     },
+                     'sass-loader',
+                     'postcss-loader'
+                 ]
+             },
+             {
+                test:/\.css$/,
+                use:[
+                    'style-loader',
+                    'css-loader'
+                ]
+            }
+        ]
+    }
 }
 
 

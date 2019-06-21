@@ -1,0 +1,21 @@
+{
+  "name": "test3",
+  "version": "1.0.0",
+  "sideEffects":[
+    "*.css"
+  ],
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "bundle": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server",
+    "server": "node server.js",
+    "dev-build": "webpack  --config ./build/webpack_common.js",
+    "dev": "webpack-dev-server --config ./build/webpack_common.js",
+    "build": "webpack --env.production --config ./build/webpack_common.js",
+    "build1": "webpack --env production --config ./build/webpack_common.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

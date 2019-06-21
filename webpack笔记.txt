@@ -78,3 +78,7 @@ package.json  :
 
 
 ctrl + shift + p   >Show Coverage 查看代码利用率
+
+
+
+6.

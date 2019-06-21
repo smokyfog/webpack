@@ -1,0 +1,19 @@
+{
+  "name": "test3",
+  "version": "1.0.0",
+  "sideEffects": [
+    "*.css"
+  ],
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "http-server dist",
+    "dev": "webpack-dev-server --config ./build/webpack.dev.js",
+    "build": "webpack --config ./build/webpack.prod.js"
+  },
+  "author": "yq",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}

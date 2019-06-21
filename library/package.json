@@ -1,0 +1,16 @@
+{
+  "name": "21.library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/library.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "yq",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.4"
+  }
+}

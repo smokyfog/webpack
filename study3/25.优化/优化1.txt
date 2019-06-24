@@ -1,0 +1,8 @@
+1. 跟上产品的迭代 npm node webpack 等
+2. 控制loader的作用范围缩小
+3. plugin尽可能少的使用
+4. resolve参数的合理配置    
+如： resolve: {
+        extensions: ['.js', '.jsx'] //未写后缀名的时候会默认先去找js然后再去找jsx
+    },
+5. 使用DllPlugin提高打包速度

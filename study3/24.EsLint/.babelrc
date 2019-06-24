@@ -1,0 +1,22 @@
+{
+    //平时开发时使用下面的配置
+     "presets": [
+         ["@babel/preset-env",{
+            "targets": {              //指定版本后无需转换
+                "edge": "17",
+                "firefox": "60",
+                "chrome": "67",
+                "safari": "11.1",
+            },
+            "useBuiltIns": "usage"   //当转es5的时候实现按需加载 @babel/polyfill
+        }],
+        "@babel/preset-react"
+    ]
+    //若开发第三方组件或库时使用下面代码    可以有效的避免全局污染的问题
+    // "plugins": [["@babel/plugin-transform-runtime",{
+    // "corejs": 2,
+    // "helpers": true,
+    // "regenerator": true,
+    // "useESModules": false
+    // }]]
+}
